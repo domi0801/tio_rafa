@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para tío Rafa y familia 💌</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Decoraciones del fondo -->
+    <div class="heart heart1">♡</div>
+    <div class="heart heart2">୨୧</div>
+    <div class="heart heart3">♡</div>
+    <div class="heart heart4">✧</div>
+
+    <!-- Contenido principal -->
+    <main class="contenedor">
+
+        <p class="subtitulo">para:</p>
+
+        <h1>Tío Rafa y familia</h1>
+
+        <p class="instruccion" id="instruccion">
+            Toca el sobre para abrir tu cartita ♡
+        </p>
+
+        <!-- Sobre interactivo -->
+        <button class="sobre" id="sobre"
+                aria-label="Abrir la carta para Brisly"
+                aria-expanded="false">
+
+            <!-- Parte trasera -->
+            <div class="parte-trasera"></div>
+
+            <!-- Carta que sale del sobre -->
+            <div class="carta">
+                <span class="mini-corazon">♡</span>
+                <p>Para alguien especial</p>
+                <span class="firma">Con cariño ♡</span>
+            </div>
+
+            <!-- Imagen que se expande -->
+            <div class="foto-grande" id="fotoGrande">
+                <img src="foto.JPEG"
+                     alt="Una foto especial para Brisly">
+
+                <span class="cerrar" id="cerrar">×</span>
+            </div>
+
+            <!-- Frente del sobre -->
+            <div class="frente-izquierdo"></div>
+            <div class="frente-derecho"></div>
+            <div class="frente-inferior"></div>
+
+            <!-- Solapa -->
+            <div class="solapa"></div>
+
+            <!-- Sello -->
+            <div class="sello">♡</div>
+
+        </button>
+
+        <p class="pie">made with love ♡</p>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+
+/* ===== ESTILO GENERAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Georgia, serif;
+    background: linear-gradient(
+        135deg,
+        #fff5f8,
+        #fce4ec,
+        #fff0f5
+    );
+    color: #a64d70;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.contenedor {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.subtitulo {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c0809a;
+}
+
+h1 {
+    font-size: clamp(32px, 8vw, 48px);
+    font-weight: normal;
+    margin: 8px 0;
+    color: #b75d80;
+}
+
+.instruccion {
+    font-size: 14px;
+    color: #b57a91;
+    margin-bottom: 55px;
+}
+
+.pie {
+    margin-top: 55px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #c0809a;
+}
+
+/* ===== CORAZONES DEL FONDO ===== */
+.heart {
+    position: fixed;
+    color: #e7a3bb;
+    pointer-events: none;
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.heart1 {
+    top: 12%;
+    left: 12%;
+    font-size: 38px;
+}
+
+.heart2 {
+    top: 25%;
+    right: 12%;
+    font-size: 28px;
+    animation-delay: 1s;
+}
+
+.heart3 {
+    bottom: 15%;
+    left: 18%;
+    font-size: 32px;
+    animation-delay: 2s;
+}
+
+.heart4 {
+    bottom: 20%;
+    right: 15%;
+    font-size: 35px;
+    animation-delay: 1.5s;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* ===== SOBRE ===== */
+.sobre {
+    position: relative;
+    display: block;
+    width: min(320px, 82vw);
+    height: 205px;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1000px;
+    filter: drop-shadow(0 15px 15px #c47f9a30);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.parte-trasera {
+    position: absolute;
+    inset: 0;
+    background: #eeb4c9;
+    border-radius: 5px;
+}
+
+/* ===== CARTA DENTRO DEL SOBRE ===== */
+.carta {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    width: 90%;
+    height: 80%;
+    background: #fffdfd;
+    border: 1px solid #f6dce6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.8s ease;
+    z-index: 2;
+}
+
+.carta p {
+    font-size: 16px;
+    color: #b75d80;
+}
+
+.mini-corazon {
+    font-size: 28px;
+    color: #d780a1;
+}
+
+.firma {
+    font-size: 12px;
+    color: #c0809a;
+    font-style: italic;
+}
+
+/* ===== FRENTE DEL SOBRE ===== */
+.frente-izquierdo,
+.frente-derecho,
+.frente-inferior {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
+
+.frente-izquierdo {
+    background: #f7d0df;
+    clip-path: polygon(0 0, 52% 53%, 0 100%);
+}
+
+.frente-derecho {
+    background: #f2c1d4;
+    clip-path: polygon(100% 0, 48% 53%, 100% 100%);
+}
+
+.frente-inferior {
+    background: #f8d9e5;
+    clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+}
+
+/* ===== SOLAPA QUE SE ABRE ===== */
+.solapa {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: #e7a6bf;
+    clip-path: polygon(0 0, 100% 0, 50% 57%);
+    transform-origin: top;
+    transition: transform 0.65s ease;
+    backface-visibility: hidden;
+}
+
+/* ===== SELLO DEL SOBRE ===== */
+.sello {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #c96f94;
+    border: 2px solid #f9dce7;
+    color: white;
+    font-size: 25px;
+    transition: opacity 0.3s ease;
+}
+
+/* ===== IMAGEN EXPANDIDA ===== */
+.foto-grande {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: min(86vw, 440px);
+    height: min(72vh, 600px);
+    padding: 8px;
+    background: #fffafa;
+    border: 1px solid #f1c7d7;
+    border-radius: 8px;
+    box-shadow: 0 20px 80px #7a365455;
+    z-index: 20;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translate(-50%, -45%) scale(0.15);
+    transition:
+        transform 0.65s cubic-bezier(.2, .8, .2, 1),
+        opacity 0.4s ease,
+        visibility 0s linear 0.65s;
+}
+
+.foto-grande img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Botón para cerrar la foto */
+.cerrar {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #c96f94;
+    border: 2px solid white;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    line-height: 1;
+    box-shadow: 0 3px 12px #0002;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* ===== ANIMACIÓN AL ABRIR ===== */
+.sobre.abierto .solapa {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.sobre.abierto .carta {
+    transform: translateY(-65px);
+}
+
+.sobre.abierto .sello {
+    opacity: 0;
+}
+
+.sobre.abierto .foto-grande {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition-delay: 0s;
+}
+
+.sobre.abierto .cerrar {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===== ADAPTACIÓN A CELULARES ===== */
+@media (max-width: 400px) {
+    .sobre {
+        height: 180px;
+    }
+
+    .instruccion {
+        margin-bottom: 45px;
+    }
+
+    .pie {
+        margin-top: 45px;
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
